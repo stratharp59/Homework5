@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 5</title>
+    <style>
+        body {
+            margin: 50px auto;
+            width: 1000px 
+        }
+         #pics {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+                }
+                
+        #bigPic { margin-top: 15px }
+
+        #bigPic p {
+            font-size: 18pt;
+            text-align: center;
+            color: #333
+                }
+    </style>
+</head>
+<body>
+   <section id="pics"></section>
+   <section id="bigPic"></section>
+
+    <script>
+        let gallery = [
+        {fname: 'kost.jpg', size: '250', sign: 'Красный костел', link: 'https://chyrvony.by/', descr: 'Костёл святого Симеона и святой Елены, часто называемый также Красным костёлом — наиболее известный католический храм Минска.' },
+        {fname: 'pred.jpg', size: '250', sign: 'Троицкое предместье', link: 'https://www.belarus.by/ru/travel/belarus-life/trinity-suburb', descr: 'Троицкое предместье – живописный старинный квартал на берегу реки Свислочь в центре Минска. Его уютные улочки и выкрашенные в нежные тона дома с черепичными крышами стали своеобразным символом Минска.'},
+        {fname: 'mirzam.jpg', size: '250', sign: 'Мирский замок', link: 'https://mirzamak.by/', descr: 'В городе Мир Гродненской области находится замок. Он датируется 16-м веком и выстроен в готическом стиле. История мирского замка связана со всеми войнами, которые происходили в Беларуси. Особенно сильно укрепления страдали в ходе русско-польских войн и русско-французской войны. Но после каждого сражения замок восстанавливали.'}
+
+        ]
+        let s = '';
+        for (let i = 0; i < gallery.length; i++) {
+
+            s+= `<div><img src="image/${gallery[i].fname}" width="${gallery[i].size}" onClick="showBigPic('${gallery[i].fname}' , '${gallery[i].descr}')">
+            <p><a href='${gallery[i].link}' target='_blank'>${gallery[i].sign}</a></p></div>`
+
+            
+        }
+        pics.innerHTML = s
+
+        function showBigPic(p,t) {
+    bigPic.innerHTML = `<img src="image/${p}" width="1000" onclick="bigPic.innerHTML =''"><p>${t}</p>`
+}
+
+        f = document.getElementById('pics')      
+        d = f.getElementsByTagName('p')
+        d1 = f.getElementsByTagName('a')  
+
+        for (j=0; j<d.length; j++)  {
+
+            d[j].style.fontSize = '18pt'
+            d[j].style.textAlign = 'center'
+            d1[j].style.textDecoration = 'none'
+            d1[j].style.color = 'blue'
+                  }
+    </script>
+
+
+</body>
+</html>
